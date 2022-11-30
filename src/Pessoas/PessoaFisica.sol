@@ -3,18 +3,20 @@ pragma solidity ^0.8.10;
 
 import {ERC721} from "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import {PessoaFisicaRouter} from "../Routers/PessoaFisicaRouter.sol";
+import {PessoaFisicaController} from "../Controllers/PessoaFisicaController.sol";
 
 contract PessoaFisica is ERC721 {
     PessoaFisicaRouter public router;
-    address public controller;
+    PessoaFisicaController public controller;
     uint256 public counter;
 
-    constructor() ERC721("Pessoa Fisica", "PF") {
-        router = PessoaFisicaRouter(msg.sender);
+    constructor(address _router, address _controller) ERC721("Pessoa Fisica", "PF") {
+        router = PessoaFisicaRouter(_router);
+        controller = PessoaFisicaController(_controller);
     }
 
-    function criarPessoa(string memory _nome, string memory _data) public isRouter returns (uint256) {
-        _mint(address(router), counter);
+    function criarPessoa() public isRouter returns (uint256) {
+        _mint(address(controller), counter);
         counter++;
         return counter - 1;
     }

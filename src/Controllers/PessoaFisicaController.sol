@@ -1,4 +1,38 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.10;
 
-contract PessoaFisicaController {}
+import {PessoaFisicaRouter} from "../Routers/PessoaFisicaRouter.sol";
+
+interface IERC721Receiver {
+    /**
+     * @dev Whenever an {IERC721} `tokenId` token is transferred to this contract via {IERC721-safeTransferFrom}
+     * by `operator` from `from`, this function is called.
+     *
+     * It must return its Solidity selector to confirm the token transfer.
+     * If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.
+     *
+     * The selector can be obtained in Solidity with `IERC721Receiver.onERC721Received.selector`.
+     */
+    function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data)
+        external
+        returns (bytes4);
+}
+
+contract PessoaFisicaController {
+    address public owner; //should be a multisig
+    PessoaFisicaRouter public router;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function deployRouter() public onlyOwner returns (address) {
+        router = new PessoaFisicaRouter();
+        return address(router);
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+}

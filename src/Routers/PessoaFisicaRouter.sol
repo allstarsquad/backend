@@ -13,13 +13,18 @@ contract PessoaFisicaRouter {
         controller = msg.sender;
     }
 
-    function criarPessoa(string calldata _nome, string calldata _data) public {
-        pf.criarPessoa(_nome, _data);
-        currentCounter++;
+    function setPessoaFisicaMint(address _minter) public isController {
+        pf = PessoaFisica(_minter);
     }
 
-    modifier isController(address _sender) {
-        require(_sender == controller);
+    function criarPessoa() public returns (uint256) {
+        (uint256 current) = pf.criarPessoa();
+        currentCounter = current;
+        return current;
+    }
+
+    modifier isController() {
+        require(msg.sender == controller);
         _;
     }
 }

@@ -12,7 +12,7 @@ contract PessoaFisicaScript is Script {
     PessoaFisicaRouter router;
 
     function run() public {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        uint256 deployerPrivateKey = vm.envUint("KEY");
 
         vm.startBroadcast(deployerPrivateKey);
 
@@ -28,4 +28,4 @@ contract PessoaFisicaScript is Script {
 
         vm.stopBroadcast();
     }
-} 
+}

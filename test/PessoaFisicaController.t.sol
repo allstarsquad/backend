@@ -15,7 +15,7 @@ contract PessoaFisicaControllerTest is Test {
         controller = new PessoaFisicaController();
         router = PessoaFisicaRouter(controller.deployRouter());
         pessoa = new PessoaFisica(address(router), address(controller));
-        
+
         vm.startPrank(address(controller));
         router.setPessoaFisicaMint(address(pessoa));
         vm.stopPrank();

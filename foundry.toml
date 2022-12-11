@@ -10,6 +10,7 @@ fuzz_runs = 100_000
 
 # RPC Endpoints
 [rpc_endpoints]
+celo = "https://celo-alfajores.infura.io/v3/dc9ff48b9e8f48aca79fbecd089d5418"
 
 [etherscan]
 arbitrum = { key = "${}"}

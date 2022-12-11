@@ -4,27 +4,24 @@ pragma solidity ^0.8.10;
 import "forge-std/Test.sol";
 import "../src/Controllers/PessoaFisicaController.sol";
 import "../src/Pessoas/PessoaFisica.sol";
-import "../src/Routers/PessoaFisicaRouter.sol";
 
 contract PessoaFisicaControllerTest is Test {
     PessoaFisicaController controller;
-    PessoaFisicaRouter router;
-    PessoaFisica pessoa;
+    PessoaFisica pf;
+    address public constant owner = 0x99ba82E610C7Ed000F2477F7F548dcadEe97a9a3;
 
     function setUp() public {
+        vm.startPrank(owner);
         controller = new PessoaFisicaController();
-        router = PessoaFisicaRouter(controller.deployRouter());
-        pessoa = new PessoaFisica(address(router), address(controller));
-
-        vm.startPrank(address(controller));
-        router.setPessoaFisicaMint(address(pessoa));
+        pf = new PessoaFisica();
         vm.stopPrank();
     }
 
     function test_should_mint_and_receive_tokenized() public {
-        vm.startPrank(address(controller));
-        router.criarPessoa();
+        vm.startPrank(owner);
+        pf.setarController(address(controller));
+        pf.novoCadastro();
         vm.stopPrank();
-        assertTrue(pessoa.balanceOf(address(controller)) == 1);
+        assertTrue(pf.balanceOf(address(controller)) == 1);
     }
 }

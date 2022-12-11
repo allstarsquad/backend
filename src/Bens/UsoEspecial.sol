@@ -7,14 +7,14 @@ import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 import {ERC721URIStorage} from "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import {Strings} from "openzeppelin-contracts/contracts/utils/Strings.sol";
 
-contract PessoaFisica is ERC721URIStorage, Ownable {
+contract UsoEspecial is ERC721URIStorage, Ownable {
     address public controller;
     uint256 public counter;
     string private baseTokenURI;
 
     using Strings for uint256;
 
-    constructor() ERC721("Pessoa Fisica", "PF") {}
+    constructor() ERC721("Uso Especial", "UE") {}
 
     function novoCadastro() public onlyOwner returns (uint256) {
         _mint(controller, counter);

@@ -25,7 +25,7 @@ contract PessoaFisicaScript is Script {
         dom.setarController(controller);
         uc.setarController(controller);
         ue.setarController(controller);
-        
+
         dom.setBaseTokenURI("https://gateway.pinata.cloud/ipfs/QmYTnrxGKZww7dZqSyR8WmWkqQTtHSJ38yVwnWhfwU9bwZ/");
         uc.setBaseTokenURI("https://gateway.pinata.cloud/ipfs/QmYTnrxGKZww7dZqSyR8WmWkqQTtHSJ38yVwnWhfwU9bwZ/");
         ue.setBaseTokenURI("https://gateway.pinata.cloud/ipfs/QmYTnrxGKZww7dZqSyR8WmWkqQTtHSJ38yVwnWhfwU9bwZ/");

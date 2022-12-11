@@ -11,6 +11,8 @@ contract Dominical is ERC721URIStorage, Ownable {
     address public controller;
     uint256 public counter;
     string private baseTokenURI;
+    string public uriDono;
+    mapping(uint256 => string) public getDono;
 
     using Strings for uint256;
 
@@ -27,8 +29,16 @@ contract Dominical is ERC721URIStorage, Ownable {
         controller = _controller;
     }
 
+    function setarDono(uint256 _idBem, uint256 _idDono) public onlyOwner {
+        getDono[_idBem] = donoURI(_idDono);
+    }
+
     function getCurrentCounter() public view returns (uint256) {
         return counter;
+    }
+
+    function setUriDono(string memory _uriDono) public onlyOwner {
+        uriDono = _uriDono;
     }
 
     function setBaseTokenURI(string calldata _baseTokenURI) public onlyOwner {
@@ -37,6 +47,10 @@ contract Dominical is ERC721URIStorage, Ownable {
 
     function _baseURI() internal view override returns (string memory) {
         return baseTokenURI;
+    }
+
+    function donoURI(uint256 tokenId) public view returns (string memory) {
+        return string(abi.encodePacked(uriDono, tokenId.toString()));
     }
 
     function tokenURI(uint256 tokenId) public view override returns (string memory) {

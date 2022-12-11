@@ -7,4 +7,5 @@ interface IBens {
     function setBaseTokenURI(string calldata _baseTokenURI) external;
     function getTokenURI(uint256 _tokenId) external view returns (string memory);
     function novoCadastro() external returns (uint256);
+    function setarDono(uint256 _idBem, uint256 _idDono) external;
 }

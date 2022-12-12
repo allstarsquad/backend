@@ -1,6 +1,6 @@
 # BackEnd
 
-## AREN - Um projeto de tokenmização para o Governo.
+## AREN - Um projeto de tokenização para o Governo.
 <img width="350px" height="350px" src="/src/assets/logo.png" alt="Alt text" title="Logo">
 
 ## Solução

@@ -7,20 +7,23 @@ import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
 import {ERC721URIStorage} from "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import {Strings} from "openzeppelin-contracts/contracts/utils/Strings.sol";
 
-contract PessoaFisica is ERC721URIStorage, Ownable {
+contract UsoComum is ERC721URIStorage, Ownable {
     address public controller;
     uint256 public counter;
     string private baseTokenURI;
 
     using Strings for uint256;
 
-    constructor() ERC721("Pessoa Fisica", "PF") {}
+    constructor() ERC721("Uso Comum", "UC") {}
 
     function novoCadastro() public onlyOwner returns (uint256) {
+        uint256 current = getCurrentCounter();
+
         _mint(controller, counter);
         _setTokenURI(counter, baseTokenURI);
         counter++;
-        return counter - 1;
+
+        return current;
     }
 
     function setarController(address _controller) public onlyOwner {
@@ -35,11 +38,7 @@ contract PessoaFisica is ERC721URIStorage, Ownable {
      *  VIEW FUNCTIONS
      */
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
-        return string(
-            abi.encodePacked(
-                baseTokenURI, tokenId.toString()
-            )
-        );
+        return string(abi.encodePacked(baseTokenURI, tokenId.toString()));
     }
 
     function getCurrentCounter() public view returns (uint256) {

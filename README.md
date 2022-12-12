@@ -8,15 +8,15 @@ A AREN é uma plataforma desenvolvida com o intuito de revolucionar o ecossistem
 
 ## Arquiteturas do BackEnd / Contratos
 
-# Cadastro de uma nova Pessoa Física
+### Cadastro de uma nova Pessoa Física
 
 <img height="400px" src="/src/assets/cadastroPessoa.jpeg" alt="Alt text" title="FluxoPessoa">
 
-# Cadastro de Bens
+### Cadastro de Bens
 
 <img height="400px" src="/src/assets/cadastroBens.jpeg" alt="Alt text" title="FluxoPessoa">
 
-# Transferência de Posse do Bem Dominical
+### Transferência de Posse do Bem Dominical
 
 <img height="400px" src="/src/assets/posseDominical.jpeg" alt="Alt text" title="FluxoPessoa">
 

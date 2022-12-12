@@ -32,7 +32,7 @@ contract Dominical is ERC721URIStorage, Ownable {
         controller = _controller;
     }
 
-    function setarDono(uint256 _idBem, uint256 _idDono, bool _partilhado, uint256 _percentualAdquirido)
+    function setarDono(uint256 _idBem, uint256 _idDono)
         public
         onlyOwner
     {

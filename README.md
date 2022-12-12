@@ -10,15 +10,15 @@ A AREN é uma plataforma desenvolvida com o intuito de revolucionar o ecossistem
 
 # Cadastro de uma nova Pessoa Física
 
-<img src="/src/assets/cadastroPessoa.jpeg" alt="Alt text" title="FluxoPessoa">
+<img height="400px" src="/src/assets/cadastroPessoa.jpeg" alt="Alt text" title="FluxoPessoa">
 
 # Cadastro de Bens
 
-<img src="/src/assets/cadastroBens.jpeg" alt="Alt text" title="FluxoPessoa">
+<img height="400px" src="/src/assets/cadastroBens.jpeg" alt="Alt text" title="FluxoPessoa">
 
 # Transferência de Posse do Bem Dominical
 
-<img src="/src/assets/posseDominical.jpeg" alt="Alt text" title="FluxoPessoa">
+<img height="400px" src="/src/assets/posseDominical.jpeg" alt="Alt text" title="FluxoPessoa">
 
 ## Ferramentas e Tecnologias 
 
